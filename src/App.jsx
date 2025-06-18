@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import ContactUs from './components/Contactus';
@@ -12,12 +12,25 @@ import ProjectShowcase from './components/ProjectShowcase';
 import PageNotFound from './components/PageNotFound';
 import Blog from './components/Blog';
 import Footer from './components/Footer';
+import BlogPost from './components/BlogPost';
+import { useEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Aura-consultancy">
       <div className="min-h-screen bg-gray-50 flex flex-col">
         <Navbar />
+        <ScrollToTop />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -29,6 +42,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/video-carousel" element={<VideoCarousel />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>

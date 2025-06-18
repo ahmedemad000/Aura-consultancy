@@ -57,24 +57,26 @@ const FAQ = () => {
   const answerAnim = {
     open: {
       opacity: 1,
-      height: "auto",
+      maxHeight: "300px", // Sufficiently large max-height to accommodate all answers
       paddingTop: "1.5rem",
       paddingBottom: "1.5rem",
       transition: {
         type: "spring",
         stiffness: 200,
-        damping: 20
+        damping: 20,
+        duration: 0.4 // Reduced duration for smoother opening
       }
     },
     closed: {
       opacity: 0,
-      height: 0,
+      maxHeight: 0,
       paddingTop: 0,
       paddingBottom: 0,
       transition: {
         type: "spring",
         stiffness: 200,
-        damping: 20
+        damping: 20,
+        duration: 0.3 // Slightly faster close to reduce glitch
       }
     }
   };
