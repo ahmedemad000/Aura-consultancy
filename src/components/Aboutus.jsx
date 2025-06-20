@@ -1,26 +1,47 @@
 import { motion } from 'framer-motion';
-import { FaUsers, FaRocket, FaLightbulb, FaAward, FaHistory } from 'react-icons/fa';
-
-const teamMembers = [
-  { id: 1, name: "John Doe", role: "CEO", image: "https://images.unsplash.com/photo-1500648762182-7e7d2a515c4b?auto=format&fit=crop&w=400&q=80" },
-  { id: 2, name: "Jane Smith", role: "CTO", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" },
-  { id: 3, name: "Alex Johnson", role: "Lead Engineer", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" },
-];
+import { useState } from 'react';
+import { FaBalanceScale, FaStar, FaPuzzlePiece, FaHandshake, FaChartLine, FaRocket } from 'react-icons/fa';
 
 const values = [
-  { id: 1, title: "Innovation", description: "Driving progress with cutting-edge construction technologies.", icon: <FaLightbulb /> },
-  { id: 2, title: "Excellence", description: "Delivering superior quality in every project we undertake.", icon: <FaAward /> },
-  { id: 3, title: "Collaboration", description: "Building strong partnerships for successful outcomes.", icon: <FaUsers /> },
+  {
+    id: 1,
+    title: "Integrity & Fairness",
+    description: "Acting with honesty, transparency, and ethical responsibility in every engagement.",
+    icon: <FaBalanceScale />,
+  },
+  {
+    id: 2,
+    title: "Excellence & Expertise",
+    description: "Maintaining high standards through continuous learning and deep industry knowledge.",
+    icon: <FaStar />,
+  },
+  {
+    id: 3,
+    title: "Proactive Problem Solving",
+    description: "Anticipating challenges early and implementing smart, timely solutions.",
+    icon: <FaPuzzlePiece />,
+  },
+  {
+    id: 4,
+    title: "Client Partnership",
+    description: "Building strong, collaborative relationships to meet client needs and achieve shared success.",
+    icon: <FaHandshake />,
+  },
+  {
+    id: 5,
+    title: "Value Creation",
+    description: "Delivering measurable impact and long-term value through every service we provide.",
+    icon: <FaChartLine />,
+  },
 ];
 
-const historyMilestones = [
-  { year: 2015, event: "Founded with a mission to redefine construction standards." },
-  { year: 2018, event: "Completed our first major commercial project, earning industry acclaim." },
-  { year: 2022, event: "Expanded operations to include sustainable infrastructure projects." },
-  { year: 2025, event: "Introduced AI-driven construction solutions for enhanced efficiency." },
-];
+const AboutUs = () => {
+  const [activeValue, setActiveValue] = useState(null);
 
-const Aboutus = () => {
+  const toggleValue = (id) => {
+    setActiveValue(activeValue === id ? null : id);
+  };
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -58,7 +79,7 @@ const Aboutus = () => {
   return (
     <div className="relative bg-gray-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-red-900 to-red-800">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=1260')] bg-cover bg-center" />
       </div>
 
@@ -74,25 +95,31 @@ const Aboutus = () => {
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-indigo-400 tracking-tight font-sans drop-shadow-lg"
             variants={itemVariants}
           >
-            Our Construction Legacy
+            About Us
           </motion.h1>
+          <motion.h2
+            className="mt-4 text-3xl sm:text-4xl font-bold text-white tracking-tight font-sans drop-shadow-md"
+            variants={itemVariants}
+          >
+            Who We Are
+          </motion.h2>
           <motion.p
             className="mt-6 text-lg sm:text-xl lg:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed font-light tracking-wide drop-shadow-md"
             variants={itemVariants}
           >
-            We are a pioneering construction firm dedicated to building a sustainable future through innovation, excellence, and collaboration. Our journey is defined by transformative projects and lasting partnerships.
+            AURA Consultancy, based in Cairo, was founded by Hussein Rasmy and Noha Hassan. Both co-founders hold advanced degrees in construction law and project management, and together bring decades of leadership, strategic insight, and technical excellence to the firm.
           </motion.p>
           <motion.div variants={itemVariants}>
             <a
               href="#mission"
               className="inline-flex items-center px-8 py-3 mt-8 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors duration-300 shadow-lg"
             >
-              Explore Our Mission <FaRocket className="ml-3 h-5 w-5" />
+              Discover Our Mission <FaRocket className="ml-3 h-5 w-5" />
             </a>
           </motion.div>
         </motion.section>
 
-        {/* Team Section */}
+        {/* Founders Highlight Section */}
         <motion.section
           className="mb-20"
           variants={containerVariants}
@@ -104,39 +131,73 @@ const Aboutus = () => {
             className="text-3xl sm:text-4xl font-bold text-center text-white mb-10 tracking-tight font-sans drop-shadow-md"
             variants={itemVariants}
           >
-            Our Leadership Team
+            Our Founders
           </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member) => (
-              <motion.div
-                key={member.id}
-                className="bg-gray-800/50 rounded-3xl overflow-hidden border border-gray-700 backdrop-blur-sm"
-                variants={hoverVariants}
-                whileHover="hover"
+          <motion.div
+            className="bg-gray-800/50 rounded-3xl p-8 border border-gray-700 backdrop-blur-sm"
+            variants={itemVariants}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+              <div className="text-center">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2 tracking-wide font-sans drop-shadow-md">
+                  Hussein Rasmy
+                </h3>
+                <p className="text-gray-300 text-base sm:text-lg font-light tracking-wide">
+                  Co-Founder
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2 tracking-wide font-sans drop-shadow-md">
+                  Noha Hassan
+                </h3>
+                <p className="text-gray-300 text-base sm:text-lg font-light tracking-wide">
+                  Co-Founder
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-100 text-lg sm:text-xl leading-relaxed font-light tracking-wide text-center mb-6">
+              With advanced degrees in construction law and project management, Hussein Rasouli and Noha Hassan bring decades of leadership, strategic insight, and technical excellence. Their extensive experience has driven transformation, set new standards, and reshaped complex developments across the region. At AURA, their leadership fosters clarity, control, and confidence, driving positive change in the construction sector.
+            </p>
+            <div className="text-center">
+              <a
+                href="/blog"
+                className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors duration-300 shadow-lg"
               >
-                <div className="relative h-64 sm:h-72">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2 tracking-wide font-sans drop-shadow-md">
-                    {member.name}
-                  </h3>
-                  <p className="text-gray-300 text-base sm:text-lg font-light tracking-wide">
-                    {member.role}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                Meet Our Leadership
+              </a>
+            </div>
+          </motion.div>
         </motion.section>
 
-        {/* Values Section */}
+        {/* Commitment Section */}
+        <motion.section
+          className="mb-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          <motion.h2
+            className="text-3xl sm:text-4xl font-bold text-center text-white mb-10 tracking-tight font-sans drop-shadow-md"
+            variants={itemVariants}
+          >
+            Our Commitment
+          </motion.h2>
+          <motion.p
+            className="text-lg sm:text-xl text-gray-100 max-w-4xl mx-auto leading-relaxed font-light tracking-wide text-center"
+            variants={itemVariants}
+          >
+            AURA Consultancy is defined by its unwavering commitment to clarity, control, and certainty—principles that shape every project we undertake. This philosophy ensures that outcomes are predictable, cost-effective, and closely aligned with our clients’ strategic goals.
+          </motion.p>
+          <motion.p
+            className="mt-6 text-lg sm:text-xl text-gray-100 max-w-4xl mx-auto leading-relaxed font-light tracking-wide text-center"
+            variants={itemVariants}
+          >
+            Backed by a leadership team with extensive experience on major projects across Egypt and the MENA region, AURA combines technical excellence with the strategic acumen required to navigate today’s complex construction landscape and deliver meaningful results.
+          </motion.p>
+        </motion.section>
+
+        {/* Core Values Section (Unchanged) */}
         <motion.section
           id="mission"
           className="mb-20"
@@ -173,7 +234,7 @@ const Aboutus = () => {
           </div>
         </motion.section>
 
-        {/* History Section */}
+        {/* Mission & Vision Section */}
         <motion.section
           variants={containerVariants}
           initial="hidden"
@@ -184,38 +245,70 @@ const Aboutus = () => {
             className="text-3xl sm:text-4xl font-bold text-center text-white mb-10 tracking-tight font-sans drop-shadow-md"
             variants={itemVariants}
           >
-            Our Milestones
+            Mission & Vision
           </motion.h2>
-          <div className="relative max-w-3xl mx-auto">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-400/30"></div>
-            {historyMilestones.map((milestone, index) => (
-              <motion.div
-                key={milestone.year}
-                className={`flex items-center mb-12 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-                variants={itemVariants}
-              >
-                <div className="w-1/2 px-6">
-                  <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 backdrop-blur-sm">
-                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 tracking-wide font-sans drop-shadow-md">
-                      {milestone.year}
-                    </h3>
-                    <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light tracking-wide">
-                      {milestone.event}
-                    </p>
-                  </div>
-                </div>
-                <div className="w-1/2 flex justify-center">
-                  <div className="bg-indigo-600 text-white rounded-full p-3 z-10 shadow-lg">
-                    <FaHistory className="h-5 w-5" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <motion.div
+              className="bg-gray-800/50 rounded-3xl p-8 border border-gray-700 backdrop-blur-sm"
+              variants={itemVariants}
+            >
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-wide font-sans drop-shadow-md">
+                Mission
+              </h3>
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light tracking-wide">
+                To provide efficient, reliable, and expert project management solutions across Egypt and the MENA region. Specializing in cost consultancy, claims management, and dispute resolution, AURA Consultancy is committed to supporting clients with integrity, technical excellence, and a results-driven approach ensuring successful project delivery from initiation to completion.
+              </p>
+            </motion.div>
+            <motion.div
+              className="bg-gray-800/50 rounded-3xl p-8 border border-gray-700 backdrop-blur-sm"
+              variants={itemVariants}
+            >
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-wide font-sans drop-shadow-md">
+                Vision
+              </h3>
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light tracking-wide">
+                To reshape the construction industry by proactively mitigating risks across contractual, financial, and planning aspects, empowering clients to achieve predictable, dispute-free, and high-value project outcomes.
+              </p>
+            </motion.div>
           </div>
-        </motion.section>
+          </motion.section>
+          {/* <motion.div variants={itemVariants}>
+            <h3 className="text-xl sm:text-2xl font-semibold text-center text-white mb-6 tracking-wide font-sans drop-shadow-md">
+              Our Values
+            </h3>
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              {values.map((value) => (
+                <button
+                  key={value.id}
+                  onClick={() => toggleValue(value.id)}
+                  className={`px-4 py-2 rounded-full text-white font-semibold transition-colors duration-300 ${
+                    activeValue === value.id ? 'bg-indigo-600' : 'bg-gray-700 hover:bg-indigo-500'
+                  }`}
+                >
+                  {value.title.split(' & ')[0]}
+                </button>
+              ))}
+            </div>
+            {activeValue && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="bg-gray-800/50 rounded-3xl p-6 border border-gray-700 backdrop-blur-sm text-center"
+              >
+                <h4 className="text-lg sm:text-xl font-semibold text-white mb-2 tracking-wide font-sans drop-shadow-md">
+                  {values.find((v) => v.id === activeValue).title}
+                </h4>
+                <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light tracking-wide">
+                  {values.find((v) => v.id === activeValue).description}
+                </p>
+              </motion.div>
+            )}
+          </motion.div>
+        </motion.section> */}
       </div>
     </div>
   );
 };
 
-export default Aboutus;
+export default AboutUs;

@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
-import { FiCheck, FiTool, FiHome, FiMapPin, FiGrid, FiArrowRight } from 'react-icons/fi';
-import { IoLeaf } from 'react-icons/io5';
+import { FiCheck, FiTool, FiMapPin, FiArrowRight, FiFileText, FiCalendar, FiDollarSign, FiShield } from 'react-icons/fi';
 
-const Service = () => {
+const Services = () => {
   // Animation variants
   const container = {
     hidden: { opacity: 0 },
@@ -49,34 +48,24 @@ const Service = () => {
 
   const services = [
     {
-      icon: <FiTool className="h-8 w-8 text-indigo-400 drop-shadow-md" />,
-      title: 'Commercial Construction',
-      description: 'Building modern office spaces, retail centers, and industrial facilities with innovative design.',
-      features: ['High-Rise Structures', 'Energy-Efficient Systems', 'Custom Interiors']
+      icon: <FiFileText className="h-8 w-8 text-indigo-400 drop-shadow-md" />,
+      title: 'Contract Management',
+      description: 'End-to-end contract oversight including review, negotiation, variation management, and claims—ensuring alignment with project objectives and contractual obligations.'
     },
     {
-      icon: <FiHome className="h-8 w-8 text-indigo-400 drop-shadow-md" />,
-      title: 'Residential Development',
-      description: 'Crafting sustainable, smart homes and communities for modern living.',
-      features: ['Eco-Friendly Homes', 'Smart Home Integration', 'Community Planning']
+      icon: <FiCalendar className="h-8 w-8 text-indigo-400 drop-shadow-md" />,
+      title: 'Planning Management',
+      description: 'Schedule development from tender to completion, including revised baselines, reporting tools, and forensic delay analysis for EOT and compensation claims.'
     },
     {
-      icon: <FiMapPin className="h-8 w-8 text-indigo-400 drop-shadow-md" />,
-      title: 'Infrastructure Projects',
-      description: 'Delivering durable bridges, roads, and utilities with precision and safety.',
-      features: ['Bridge Construction', 'Road Networks', 'Utility Systems']
+      icon: <FiDollarSign className="h-8 w-8 text-indigo-400 drop-shadow-md" />,
+      title: 'Cost Management',
+      description: 'Tender estimation, budgeting, cost control, and financial reporting that ensure projects stay on track and within approved budgets.'
     },
     {
-      icon: <IoLeaf className="h-8 w-8 text-indigo-400 drop-shadow-md" />,
-      title: 'Sustainable Design',
-      description: 'Integrating eco-friendly materials and technologies for green building certifications.',
-      features: ['LEED Certification', 'Renewable Energy', 'Zero-Waste Practices']
-    },
-    {
-      icon: <FiGrid className="h-8 w-8 text-indigo-400 drop-shadow-md" />,
-      title: 'Project Management',
-      description: 'End-to-end oversight ensuring timely delivery and budget adherence.',
-      features: ['Schedule Coordination', 'Cost Control', 'Quality Assurance']
+      icon: <FiShield className="h-8 w-8 text-indigo-400 drop-shadow-md" />,
+      title: 'Claims Management & Dispute Avoidance',
+      description: 'Preparation and support for claims, expert opinions, ADR facilitation, and settlement strategies—focused on protecting client interests and reducing risk.'
     }
   ];
 
@@ -87,39 +76,39 @@ const Service = () => {
         initial="hidden"
         animate="visible"
         variants={container}
-        className="relative bg-gradient-to-b from-gray-900 to-indigo-900 py-24 sm:py-32"
+        className="relative bg-gradient-to-b from-red-900 to-red-900 py-24 sm:py-32"
       >
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=1260')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative">
           <motion.div variants={item} className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-indigo-400 drop-shadow-lg font-sans leading-tight">
-              Our <span className="text-indigo-200">Construction Services</span>
+              Services
             </h1>
             <motion.p
               variants={item}
               className="mt-6 text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-100 max-w-3xl mx-auto font-light tracking-wide drop-shadow-md"
             >
-              Comprehensive construction solutions tailored to your project needs. We deliver excellence with precision, sustainability, and innovation.
+              AURA Consultancy offers a full suite of specialized services across the entire project lifecycle—ensuring every phase is delivered with structure, strategy, and confidence.
             </motion.p>
             <motion.div variants={item} className="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap">
               <motion.a
                 href="/contact"
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(0,0,0,0.3)' }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-3 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-800 px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-lg hover:from-indigo-500 hover:to-indigo-700 transition-all duration-300 tracking-wide font-sans"
-                aria-label="Get started with our construction services"
+                className="flex items-center gap-3 rounded-full bg-gradient-to-r from-red-600 to-red-800 px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-lg hover:from-indigo-500 hover:to-indigo-700 transition-all duration-300 tracking-wide font-sans"
+                aria-label="Get started with our services"
               >
                 Get Started <FiArrowRight className="h-5 w-5" />
               </motion.a>
               <motion.a
-                href="/about"
+                href="/contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-3 rounded-full bg-white/10 px-8 py-4 text-lg sm:text-xl font-semibold text-white backdrop-blur-md hover:bg-white/20 transition-all duration-300 border border-white/20 tracking-wide font-sans"
-                aria-label="Contact our sales team"
+                aria-label="Contact our team"
               >
-                Contact Sales
+                Contact Us
               </motion.a>
             </motion.div>
           </motion.div>
@@ -136,14 +125,14 @@ const Service = () => {
       >
         <motion.div variants={fadeIn} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-indigo-400 drop-shadow-lg font-sans leading-tight">
-            Comprehensive Construction Solutions
+            Our Services
           </h2>
           <p className="mt-6 text-lg sm:text-xl leading-relaxed text-gray-300 max-w-3xl mx-auto font-light tracking-wide">
-            Our suite of services is designed to meet all your construction needs with precision and sustainability.
+            Delivering specialized solutions with precision and expertise across every project phase.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -158,16 +147,8 @@ const Service = () => {
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light tracking-wide mb-6">
                 {service.description}
               </p>
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center text-gray-300 text-base sm:text-lg font-light tracking-wide">
-                    <FiCheck className="h-5 w-5 text-indigo-400 mr-2" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
               <motion.a
-                href="/services"
+                href="/contact"
                 whileHover={{ x: 5 }}
                 className="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold transition-colors duration-300 text-base tracking-wide"
                 aria-label={`Learn more about ${service.title}`}
@@ -185,42 +166,33 @@ const Service = () => {
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
         variants={container}
-        className="bg-gradient-to-b from-gray-800 to-indigo-900 py-20"
+        className="bg-gradient-to-r from-red-800 to-red-900 py-20"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <motion.h2
             variants={item}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-indigo-400 drop-shadow-lg font-sans leading-tight"
           >
-            Ready to Build Your Vision?
+            Let’s Discuss Your Project
           </motion.h2>
           <motion.p
             variants={item}
             className="mt-6 text-lg sm:text-xl leading-relaxed text-gray-100 max-w-3xl mx-auto font-light tracking-wide drop-shadow-md"
           >
-            Partner with us to create innovative, sustainable, and high-quality construction projects that stand the test of time.
+            Partner with AURA Consultancy to deliver your project with clarity, control, and confidence.
           </motion.p>
           <motion.div
             variants={item}
-            className="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap"
+            className="mt-10 flex justify-center"
           >
             <motion.a
               href="/contact"
-              whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(0,0,0,0.3)' }}
+              whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(249, 0, 0, 0.3)' }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-800 px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-lg hover:from-indigo-500 hover:to-indigo-700 transition-all duration-300 tracking-wide font-sans"
-              aria-label="Get started with your construction project"
+              className="flex items-center gap-3 rounded-full bg-gradient-to-r from-red-500 to-red-800 px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-lg hover:from-red-500 hover:to-red-700 transition-all duration-300 tracking-wide font-sans"
+              aria-label="Get started with your project"
             >
               Get Started <FiArrowRight className="h-5 w-5" />
-            </motion.a>
-            <motion.a
-              href="/about"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 rounded-full bg-white/10 px-8 py-4 text-lg sm:text-xl font-semibold text-white backdrop-blur-md hover:bg-white/20 transition-all duration-300 border border-white/20 tracking-wide font-sans"
-              aria-label="Contact our team"
-            >
-              Contact Us
             </motion.a>
           </motion.div>
         </div>
@@ -229,4 +201,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default Services;

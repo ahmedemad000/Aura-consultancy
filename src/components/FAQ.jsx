@@ -84,7 +84,7 @@ const FAQ = () => {
   return (
     <div className="relative bg-gray-900 py-20 px-4 sm:px-6 lg:px-8">
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-red-900 to-red-800">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=1260')] bg-cover bg-center" />
       </div>
 
@@ -174,7 +174,7 @@ const FAQ = () => {
             Didn't find your answer?{' '}
             <a
               href="/contact"
-              className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors duration-300"
+              className="text-white-400 underline hover:text-indigo-300 font-semibold transition-colors duration-300"
             >
               Contact our team
             </a>

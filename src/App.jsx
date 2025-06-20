@@ -1,31 +1,45 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import ContactUs from './components/Contactus';
-import FAQ from './components/Faq';
+import Footer from './components/Footer';
 import HomePage from './components/HomePage';
+import AboutUs from './components/Aboutus';
 import Service from './components/Services';
 import Projects from './components/Projects';
-import AboutUs from './components/Aboutus';
-import VideoCarousel from './components/VideoCarousel';
 import ProjectShowcase from './components/ProjectShowcase';
-import PageNotFound from './components/PageNotFound';
+import FAQ from './components/FAQ';
+import ContactUs from './components/Contactus';
+import Careers from './components/Careers';
+import VideoCarousel from './components/VideoCarousel';
 import Blog from './components/Blog';
-import Footer from './components/Footer';
 import BlogPost from './components/BlogPost';
-import { useEffect } from 'react';
+import PageNotFound from './components/PageNotFound';
 
-function ScrollToTop() {
+const ScrollToTop = () => {
   const { pathname } = useLocation();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
   return null;
-}
+};
 
-function App() {
+const App = () => {
+  const routes = [
+    { path: '/', element: <HomePage /> },
+    { path: '/about', element: <AboutUs /> },
+    { path: '/services', element: <Service /> },
+    { path: '/projects', element: <Projects /> },
+    { path: '/project-showcase', element: <ProjectShowcase /> },
+    { path: '/faq', element: <FAQ /> },
+    { path: '/contact', element: <ContactUs /> },
+    { path: '/careers', element: <Careers /> },
+    { path: '/video-carousel', element: <VideoCarousel /> },
+    { path: '/blog', element: <Blog /> },
+    { path: '/blog/:id', element: <BlogPost /> },
+    { path: '*', element: <PageNotFound /> },
+  ];
+
   return (
     <Router basename="/Aura-consultancy">
       <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -33,23 +47,15 @@ function App() {
         <ScrollToTop />
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/services" element={<Service />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/project-showcase" element={<ProjectShowcase />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/video-carousel" element={<VideoCarousel />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
-            <Route path="*" element={<PageNotFound />} />
+            {routes.map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
+            ))}
           </Routes>
         </main>
         <Footer />
       </div>
     </Router>
   );
-}
+};
 
 export default App;

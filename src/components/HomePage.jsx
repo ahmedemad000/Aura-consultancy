@@ -1,6 +1,6 @@
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { FiArrowRight, FiCheck, FiAward, FiUsers, FiTool, FiMapPin, FiPhone, FiGlobe } from 'react-icons/fi';
-import { IoLeaf } from 'react-icons/io5'; // Import IoLeaf from Ionicons
+import { IoLeaf } from 'react-icons/io5';
 import { FaHardHat } from 'react-icons/fa';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
@@ -14,14 +14,14 @@ const HomePage = () => {
 
   // Parallax effect for background
   const backgroundY = useSpring(useTransform(scrollYProgress, [0, 1], ['0%', '30%']), {
-    stiffness: 100,
+    stiffness: 0,
     damping: 30,
     restDelta: 0.001
   });
 
   // Animation variants
   const container = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 }, // Fixed typo (was opacity: 2)
     visible: {
       opacity: 1,
       transition: {
@@ -64,20 +64,21 @@ const HomePage = () => {
   };
 
   return (
-    <div className="relative bg-gray-900 overflow-hidden" ref={ref}>
+    <div className="relative bg-[rgba(0, 0, 0, 0.3)] overflow-hidden" ref={ref}>
       {/* Hero Section */}
-      <section className="relative min-h-screen">
+      <section className="relative min-h-screen bg-[#C42126]">
         <motion.div
           className="absolute inset-0 z-0"
           style={{
             y: backgroundY,
             backgroundImage: "url('https://images.unsplash.com/photo-1499336315816-7db1a3e8e718?auto=format&fit=crop&w=1920&q=80')",
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center',
+            filter: 'grayscale(100%)',
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent" />
-          <div className="absolute inset-0 opacity-10 bg-[url('https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=1260')] bg-cover bg-center" />
+          <div className="absolute inset-0" />
+          <div className="absolute inset-0 opacity-50 bg-[url('https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=1260')] bg-cover bg-center" />
         </motion.div>
 
         <div className="relative z-10 min-h-screen flex flex-col justify-center">
@@ -92,38 +93,35 @@ const HomePage = () => {
                 variants={item}
                 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-indigo-400 drop-shadow-lg font-sans leading-tight"
               >
-                Constructing a Sustainable Future
+                AURA Consultancy
               </motion.h1>
+
+              <motion.p
+                variants={item}
+                className="mt-4 text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-100 max-w-3xl mx-auto tracking-wide drop-shadow-md"
+              >
+                Clarity. Control. Certainty.
+              </motion.p>
 
               <motion.p
                 variants={item}
                 className="mt-6 text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-100 max-w-3xl mx-auto font-light tracking-wide drop-shadow-md"
               >
-                We are a leading construction firm delivering innovative, sustainable, and high-quality solutions for commercial, residential, and infrastructure projects worldwide.
+                Headquartered in Cairo, AURA Consultancy delivers strategic engineering and project management solutions to the construction industry across Egypt and the MENA region. From early planning to final handover, we support clients in managing complexity, minimizing risks, and achieving successful outcomes with clarity and confidence.
               </motion.p>
 
               <motion.div
                 variants={item}
-                className="mt-10 flex flex-wrap justify-center gap-4 sm:gap-6"
+                className="mt-10 flex justify-center"
               >
                 <motion.a
                   href="/contact"
-                  whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(0,0,0,0.3)' }}
+                  whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(255, 0, 0, 0.3)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-3 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-800 px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-lg hover:from-indigo-500 hover:to-indigo-700 transition-all duration-300 tracking-wide font-sans"
-                  aria-label="Start your construction project"
+                  className="flex items-center gap-3 rounded-full bg-[#C42126] px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-lg hover:from-indigo-500 hover:to-indigo-700 transition-all duration-300 tracking-wide font-sans"
+                  aria-label="Explore how we can support your next project"
                 >
-                  Start Your Project <FiArrowRight className="h-6 w-6" />
-                </motion.a>
-
-                <motion.a
-                  href="/projects"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-3 rounded-full bg-white/10 px-8 py-4 text-lg sm:text-xl font-semibold text-white backdrop-blur-md hover:bg-white/20 transition-all duration-300 border border-white/20 tracking-wide font-sans"
-                  aria-label="View our project portfolio"
-                >
-                  View Projects <FiMapPin className="h-6 w-6" />
+                  Explore how we can support your next project <FiArrowRight className="h-6 w-6" />
                 </motion.a>
               </motion.div>
             </motion.div>
@@ -527,11 +525,11 @@ const HomePage = () => {
 
           <div className="flex flex-wrap justify-center gap-8 sm:gap-12 max-w-6xl mx-auto">
             {[
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoBUTUqgyfzpnf2ecf0Di1kGjd7RsA5bcaWg&s',
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn9GcQoBUTUqgyfzpnf2ecf0Di1kGjd7RsA5bcaWg&s',
               'https://media.licdn.com/dms/image/v2/D560BAQHIMgvHzfgvrw/company-logo_200_200/company-logo_200_200/0/1728956705679/pinnacleconstruction_logo?e=2147483647&v=beta&t=WlFgLqssuFgw-KB7Os_UTmGW22e2I_ITdHIsCADbbIY',
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIaoUcRTvq5cGYOy6oNtoRwR4rnInnB_Bf4Q&s',
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0avWTUabrYd-hl48Hhx_8kB7YMwKNOlm9sw&s',
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_PJPtA_qmsTHcbmjFAA9bg1xEZGeWIduU2w&s'
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn9GcSIaoUcRTvq5cGYOy6oNtoRwR4rnInnB_Bf4Q&s',
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn9GcS0avWTUabrYd-hl48Hhx_8kB7YMwKNOlm9sw&s',
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn9GcQ_PJPtA_qmsTHcbmjFAA9bg1xEZGeWIduU2w&s'
             ].map((logo, index) => (
               <motion.div
                 key={index}

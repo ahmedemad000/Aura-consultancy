@@ -9,67 +9,71 @@ function Footer() {
           {/* Logo and Description */}
           <div className="flex flex-col items-center md:items-start animate-fade-in">
             <Link to="/" className="flex items-center mb-4">
-              <img src={Logo} alt="Logo" className="h-12 w-auto mr-2" />
-              <span className="text-xl font-semibold">MyApp</span>
+              <img src={Logo} alt="Logo" className="h-32 w-auto mr-2" />
+              {/* <span className="text-xl font-semibold">MyApp</span> */}
             </Link>
             <p className="text-gray-400 text-center md:text-left">
-              Building the future with innovative construction solutions.
+             Shaping construction success with clarity, control, Certainty
             </p>
           </div>
 
           {/* Navigation Links */}
           <div className="flex flex-col items-center md:items-start animate-fade-in">
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  to="/"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/projects"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/blog"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 w-full">
+              <ul className="space-y-1">
+                <li>
+                  <Link
+                    to="/"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/services"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  >
+                    Services
+                  </Link>
+                </li>
+              </ul>
+              <ul className="space-y-1">
+                <li>
+                  <Link
+                    to="/projects"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  >
+                    Projects
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/blog"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Social Media and Contact */}
@@ -110,12 +114,15 @@ function Footer() {
                 </svg>
               </a>
             </div>
-            <p className="text-gray-400">Email: contact@myapp.com</p>
-            <p className="text-gray-400">Phone: (123) 456-7890</p>
+            <p className="text-gray-400">Email: contact@aurance.com</p>
+            <p className="text-gray-400">Phone: +20 1234567890</p>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500 animate-fade-in">
-          <p>&copy; {new Date().getFullYear()} MyApp. All rights reserved.</p>
+          <div className="flex justify-between items-center">
+          <p>© {new Date().getFullYear()} AURA Consultancy. All rights reserved.</p>
+          <p>Developed by: AURA Studio</p>
+          </div>
         </div>
       </div>
     </footer>
