@@ -156,7 +156,7 @@ const AboutUs = () => {
               </div>
             </div>
             <p className="text-gray-100 text-lg sm:text-xl leading-relaxed font-light tracking-wide text-center mb-6">
-              With advanced degrees in construction law and project management, Hussein Rasouli and Noha Hassan bring decades of leadership, strategic insight, and technical excellence. Their extensive experience has driven transformation, set new standards, and reshaped complex developments across the region. At AURA, their leadership fosters clarity, control, and confidence, driving positive change in the construction sector.
+              With advanced degrees in construction law and project management, Hussein Rasouli and Noha Hassan bring decades of leadership, strategic insight, and technical excellence. Their extensive experience has driven transformation, set new standards, and reshaped complex developments across the region. At AURA, their leadership fosters clarity, control, and Certainty, driving positive change in the construction sector.
             </p>
             <div className="text-center">
               <a
