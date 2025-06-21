@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @import 'react-lazy-load-image-component/src/effects/blur.css';
+html, body {
+  zoom: 90%; 
+  font-family: poppins;
+}
