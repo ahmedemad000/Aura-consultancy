@@ -1,15 +1,13 @@
 {
-  "name": "construction",
+  "name": "aura-consultancy",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
-  "homepage": "https://ahmedemad000.github.io/Aura-consultancy",
+  "homepage": "https://ahmedema4000.github.io/Aura-consultancy",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "analyze": "vite build --mode analyze"
   },
