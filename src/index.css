@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "react-lazy-load-image-component/src/effects/blur.css";
+
+/* Font face loading optimization */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Poppins Regular"),
+    url("/fonts/Poppins-Regular.woff2") format("woff2");
+}
+
+/* Critical CSS for above-the-fold content */
+html,
+body {
+  zoom: 90%;
+  font-family: poppins, system-ui, -apple-system, sans-serif;
+}
+
+/* Preload critical images */
+link[rel="preload"][as="image"][href="/src/assets/Hero1.jpeg"] {
+  fetchpriority: high;
+}
+

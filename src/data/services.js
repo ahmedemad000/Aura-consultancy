@@ -1,0 +1,46 @@
+/**
+ * Services data for use across the application
+ * @type {Array<{title: string, description: string, features: string[]}>}
+ */
+export const services = [
+  {
+    title: 'Contract Management',
+    description: 'Managing contracts to ensure compliance, minimize risks, and protect client interests.',
+    features: [
+      'Contract drafting & review',
+      'FIDIC compliance',
+      'Variation management',
+      'Claims preparation'
+    ]
+  },
+  {
+    title: 'Planning Management',
+    description: 'Creating and monitoring project schedules to keep everything on track and aligned with goals.',
+    features: [
+      'Critical path analysis',
+      'Forensic delay analysis',
+      'EOT claims support',
+      '4D scheduling'
+    ]
+  },
+  {
+    title: 'Cost Management',
+    description: 'Budgeting, cost control, and financial oversight to ensure efficient use of resources.',
+    features: [
+      'Tender pricing',
+      'Cash flow forecasting',
+      'Value engineering',
+      'Final account preparation'
+    ]
+  },
+  {
+    title: 'Claims Management & Dispute Avoidance',
+    description: 'Proactively detecting potential issues early to prevent conflicts, reduce delays.',
+    features: [
+      'Claim preparation',
+      'ADR facilitation',
+      'Expert witness',
+      'Quantum analysis'
+    ]
+  }
+];
