@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://ahmedema4000.github.io/Aura-consultancy",
+  "homepage": "https://github.com/ahmedemad000/Aura-consultancy.git",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
